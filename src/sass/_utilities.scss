@@ -1,0 +1,61 @@
+.hidden {
+  display: none !important;
+}
+.header-filter-position {
+  position: absolute !important;
+}
+.margin-r-2{
+  margin-right: 2rem;
+}
+.padding-medium {
+  padding: 1.5rem 2.5rem;
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+.outline-none {
+  outline: none !important;
+}
+.text-center {
+  text-align: center !important;
+}
+.text-right {
+  text-align: right !important;
+}
+.text-strong {
+  font-weight: 700 !important;
+  color: $color-darkest-1 !important;
+}
+.invoice-info-item-scroll {
+  overflow-y: scroll;
+  height: 12rem;
+}
+
+.filter-form {
+  display: grid;
+  row-gap: 1rem;
+  width: 20rem;
+  padding: 2rem;
+  margin-top: 3rem;
+  border-radius: 0.9rem;
+  box-shadow: 0px 10px 20px rgba(72, 84, 159, 0.25);
+  background-color: $color-white-2;
+  z-index: 50;
+  &__category {
+    display: flex;
+    & > input {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+    & > span {
+      padding-left: 2rem;
+      font-weight: 300;
+      font-size: 2rem;
+      color: rgb(12, 14, 22);
+    }
+  }
+}

@@ -1,0 +1,302 @@
+// -------------------------- Sidebar inside styles
+// LOGO
+.logo-box {
+  position: relative;
+  display: flex;
+  width: 8rem;
+  height: 7rem;
+  background-color: rgba(124, 93, 250, 1);
+
+  &__logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &__footer {
+    width: 100%;
+    height: 50%;
+    align-self: flex-end;
+    background-color: rgba(146, 119, 255, 1);
+    border-top-left-radius: 1.6rem;
+    @media screen and (max-width: $br-point-tab-port) {
+      border-bottom-right-radius: 1.6rem;
+    }
+  }
+  @media screen and (max-width: $br-point-tab-port) {
+    border-bottom-right-radius: 1.6rem;
+    border-top-right-radius: 1.6rem;
+  }
+}
+// AVATAR
+.avatar-box {
+  &__user {
+    margin: 2.2rem 0;
+
+    @media screen and (max-width: $br-point-tab-port) {
+      margin: 1.6rem 2.6rem;
+    }
+  }
+  &__user-img {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+
+    @media screen and (max-width: $br-point-tab-port) {
+      width: 3.2rem;
+      height: 3.2rem;
+    }
+  }
+  &__switch-mode {
+    width: 2rem;
+    height: 2rem;
+    margin-bottom: 2rem;
+    cursor: pointer;
+
+    @media screen and (max-width: $br-point-tab-port) {
+      margin-bottom: 0;
+    }
+  }
+  &__bottom-border {
+    width: 100%;
+    height: 2px;
+    background-color: $color-dark-1;
+
+    @media screen and (max-width: $br-point-tab-port) {
+      align-self: stretch;
+      height: 100%;
+      margin-left: 3rem;
+    }
+  }
+  @media screen and (max-width: $br-point-tab-port) {
+    display: flex;
+    align-items: center;
+
+    & > * {
+      width: max-content;
+    }
+  }
+}
+
+// -------------- User Settings styles
+.user-settings {
+  &__signout {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 3rem;
+
+    @media screen and (max-width: $br-point-tab-port) {
+      margin-bottom: 0rem;
+      margin-right: 3rem;
+    }
+  }
+}
+
+// ----------------------- Styles inside home area
+// HOME
+.header {
+}
+.header-content {
+  &__title {
+    font-weight: 700;
+    font-size: 3.6rem;
+    line-height: 3.6rem;
+    color: $color-darkest-1;
+  }
+  &__text {
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 1.5rem;
+    color: rgb(136, 142, 176);
+  }
+}
+
+// --------------------- Styles form filter & header buttons
+.header-buttons {
+  display: flex;
+  align-items: center;
+  column-gap: 3rem;
+}
+.header-container {
+  display: flex;
+  align-items: center;
+}
+.filter-status {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  cursor: pointer;
+  &__title {
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: $color-hex-darkest;
+  }
+  &__icon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
+.btn-new-invoice {
+  display: flex;
+  align-items: center;
+  background-color: $color-hex-weak;
+  color: $color-white;
+  border-radius: 2.4rem;
+  padding: 0.7rem;
+
+  & > span {
+    color: $color-white;
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin: 0 1.4rem;
+  }
+}
+.plus-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background-color: $color-white;
+
+  & > img {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
+// ----------------------- Styles for Empty Box
+.sign-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1.2rem;
+  z-index: 30;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  h2 {
+    font-weight: 700;
+    font-size: 2.2rem;
+    line-height: 2.2rem;
+    color: #0c0e16;
+    margin-top: 3rem;
+  }
+
+  p {
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+    text-align: center;
+    color: #888eb0;
+  }
+  &__btns {
+    display: flex;
+    column-gap: 2rem;
+  }
+  &__btn {
+    border: none;
+    background-color: #10a37f;
+    width: 14rem;
+    padding: 1.6rem 1rem;
+    border-radius: 5rem;
+    color: #fff;
+    transition: all ease 0.2s;
+    cursor: pointer;
+    &:hover {
+      background-color: rgba(16, 163, 127, 0.8);
+    }
+  }
+}
+
+// ----------------------- Styles inside home area
+// Invoice
+
+.invoice {
+  list-style: none;
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: max-content repeat(4, minmax(max-content, 1fr)) max-content;
+  justify-items: center;
+  align-items: center;
+  padding: 1.8rem 2.5rem;
+  column-gap: 1.5rem;
+  background: $color-white;
+  box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
+  border-radius: 0.8rem;
+  border: 1px solid transparent;
+  transition: all 0.4s;
+
+  &:hover,
+  &:focus {
+    border: 1px solid $color-hex-weak;
+  }
+  @media screen and (max-width: $br-point-small-phone) {
+    padding: 1.8rem 1rem;
+  }
+
+  &__id-style {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: $color-hex-darkest;
+  }
+  &__info-heading {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: $color-hex-darkest;
+    margin-top: 0.4rem;
+  }
+  &__id-style > span {
+    color: $color-shadow-blue-2 !important;
+  }
+  &__text-style {
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: $color-shadow-blue;
+  }
+  &__price {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: $color-hex-darkest;
+  }
+  &__btn {
+    padding: 1.2rem 0;
+    margin-right: 2rem;
+    width: 11rem;
+    border-radius: 0.6rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+
+    &--paid {
+      color: rgb(51, 214, 159) !important;
+      background-color: rgb(51, 214, 159, 0.1) !important;
+    }
+    &--pending {
+      color: rgb(255, 143, 0) !important;
+      background-color: rgba(255, 143, 0, 0.1) !important;
+    }
+    &--draft {
+      color: rgb(55, 59, 83) !important;
+      background-color: rgba(55, 59, 83, 0.1) !important;
+    }
+    @media screen and (max-width: $br-point-small-phone) {
+      margin-right: 1rem;
+    }
+  }
+  
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $color-overlay;
+  z-index: 20;
+}

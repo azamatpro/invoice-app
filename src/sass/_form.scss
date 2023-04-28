@@ -1,0 +1,178 @@
+.invoice-fill {
+  transform: translateX(-100%);
+
+  position: absolute;
+  top: 0;
+  left: 6rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 60rem;
+  height: 100vh;
+  background-color: $color-white;
+  z-index: 40; //40
+  border-radius: 0px 2rem 2rem 0px;
+  padding: 5rem 3rem 0rem 6rem; // pb-4 in 900px
+  transition: transform 0.5s ease-out;
+
+  @media screen and (max-width: $br-point-tab-port) {
+    height: calc(100vh - 7rem);
+    top: 7rem;
+    left: 0;
+  }
+  @media screen and (max-width: $br-point-phone) {
+    padding: 4rem 1.6rem 0rem 3rem;
+  }
+
+  &__heading {
+    font-weight: 700;
+    font-size: 2.6rem;
+    color: $color-darkest-1;
+    padding-bottom: 6rem;
+
+    @media screen and (max-width: $br-point-phone) {
+      font-size: 2.4rem;
+      padding-bottom: 4rem;
+    }
+  }
+}
+.invoice-fill-inputs {
+  overflow-y: scroll;
+  padding-right: 4rem;
+
+  @media screen and (max-width: $br-point-phone) {
+    padding-right: 3rem;
+  }
+}
+.invoice-fill-inputs::-webkit-scrollbar {
+  // background-color: #7e88c3;
+  // margin-left: 10rem;
+}
+
+.invoice-fill-box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 2rem;
+  row-gap: 2.5rem;
+
+  &__heading {
+    margin-top: 4rem;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: $color-hex-weak;
+  }
+
+  &__input {
+    &--label {
+      display: block;
+      font-weight: 500;
+      font-size: 1.4rem;
+      text-transform: capitalize;
+      color: $color-shadow-blue-2;
+    }
+    &--input {
+      display: block;
+      background-color: $color-white;
+      border: 1px solid $color-white-4;
+      border-radius: 0.4rem;
+      padding: 1rem 0 1rem 0.5rem;
+      margin-top: 1rem;
+      width: 100%;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: $color-hex-darkest;
+    }
+  }
+}
+
+.invoice-fill-date-box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2rem;
+  row-gap: 2.5rem;
+  margin-top: 2.5rem;
+}
+#payment {
+  border: none;
+  border-right: 1rem solid transparent;
+  outline: 1px solid $color-white-4;
+
+  & > option {
+    background-color: $color-white;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: $color-hex-darkest;
+  }
+}
+
+.invoice-fill-item {
+  display: grid;
+  row-gap: 2rem;
+  &__item-inputs {
+    display: grid;
+    grid-template-columns: 4fr 1.3fr 3fr 2fr 1fr;
+    column-gap: 1rem;
+  }
+ 
+  &__total-input {
+    margin-top: none;
+  }
+
+  &__heading {
+    margin-top: 2.5rem;
+    font-weight: 700;
+    font-size: 2.2rem;
+    color: $color-dark-2;
+  }
+  &__btn {
+    padding: 1.4rem;
+    border-radius: 2.4rem;
+    grid-column: 1/ -1;
+
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: $color-shadow-blue-2;
+
+    @media screen and (max-width: $br-point-phone) {
+      padding: 1.2rem;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.icon-delete-box {
+  align-self: center;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.invoice-fill-footbtns {
+  padding: 2.5rem 0;
+  display: grid;
+  grid-template-columns: max-content 1fr repeat(2, max-content);
+  background-color: $color-white;
+  border-radius: 0px 2rem 2rem 0px;
+  &__btn {
+    padding: 1.2rem 2rem;
+    font-weight: 600;
+    font-size: 1.4rem;
+    border-radius: 2.4rem;
+
+    @media screen and (max-width: $br-point-phone) {
+      padding: 1rem 1.8rem;
+      font-size: 1.2rem;
+    }
+
+    &--discard {
+      color: $color-shadow-blue-2;
+    }
+    &--save-draft {
+      color: $color-shadow-blue;
+      background-color: $color-darker-1;
+      grid-column: 3/4;
+    }
+    &--save-send {
+      color: $color-white;
+      background-color: $color-hex-weak;
+    }
+  }
+}
