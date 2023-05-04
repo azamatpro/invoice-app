@@ -12,6 +12,7 @@ import InvoiceDetailsBtn from "./InvoiceDetailsBtn";
 import InvoiceDetailsDataWrap from "./InvoiceDetailsDataWrap";
 import InvoiceDetailsInfoText from "./InvoiceDetailsInfoText";
 import InvoiceDetailsItem from "./InvoiceDetailsItem";
+import { nanoid } from "nanoid";
 
 const InvoiceDetails = () => {
   const { fetchInvoices } = useContext(InvoiceDataContext);
@@ -158,7 +159,7 @@ const InvoiceDetails = () => {
             </div>
             <div className="invoice-info-item-scroll invoice-info-item">
               {items.map((item) => (
-                <InvoiceDetailsItem key={item.name} item={item} />
+                <InvoiceDetailsItem key={nanoid()} item={item} />
               ))}
             </div>
           </div>
