@@ -1,6 +1,4 @@
 import { ReactComponent as IconSun } from "../assets/icon-sun.svg";
-// import { ReactComponent as IconMoon } from "../assets/icon-moon.svg";
-// import AvatarImage from '../assets/image-avatar.jpg'
 import { RxAvatar } from "react-icons/rx";
 import { signOutUser } from "../utils/firebase.utils";
 import { useContext } from "react";
