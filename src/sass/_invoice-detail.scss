@@ -5,7 +5,10 @@
   row-gap: 2rem;
   margin-left: auto;
   margin-right: auto;
-  height: 100vh;
+
+  @media screen and (max-width: $br-point-small-phone) {
+    height: 100vh;
+  }
 }
 .go-back {
   padding: 1rem 0 0.5rem;
