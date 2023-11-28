@@ -1,0 +1,49 @@
+.payment {
+  height: 300px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  &__heading {
+    font-size: 30px;
+    margin: 60px 0;
+  }
+  &__card-title {
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: min-content;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 5px rgb(218, 215, 215);
+    width: 500px;
+    // background-color: #fff;
+
+    @media only screen and (max-width: 600px) {
+      width: 90%;
+    }
+  }
+
+  &__btn {
+    background-color: rgb(124, 93, 250);
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+.invoice-fixer {
+  grid-template-columns: repeat(4, minmax(max-content, 1fr));
+}

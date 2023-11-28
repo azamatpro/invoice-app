@@ -10,7 +10,6 @@ import InvoiceFillSelect from "./InvoiceFillSelect";
 import InvoiceItemsList from "./invoiceItemsList";
 import { nanoid } from "nanoid";
 
-
 const InvoiceFillForm = ({ style }) => {
   const { invoice, getInvoice } = useContext(InvoiceContext);
   const { fetchInvoices } = useContext(InvoiceDataContext);
@@ -52,14 +51,10 @@ const InvoiceFillForm = ({ style }) => {
     return randomAbs + Math.floor(1000 + Math.random() * 9000);
   };
   const createItems = (data) => {
-    const filteredItems = Object.entries(data).filter((invoice) =>
-      invoice[0].startsWith("item")
-    );
+    const filteredItems = Object.entries(data).filter((invoice) => invoice[0].startsWith("item"));
     const items = [];
     for (let i = 1; i <= filteredItems.length / 4; i++) {
-      const obj = Object.fromEntries(
-        filteredItems.filter((el) => el[0].includes(i))
-      );
+      const obj = Object.fromEntries(filteredItems.filter((el) => el[0].includes(i)));
       const item = {
         name: obj[`itemName_${i}`],
         quantity: obj[`itemQuantity_${i}`],
@@ -112,84 +107,91 @@ const InvoiceFillForm = ({ style }) => {
   };
 
   return (
-    <form onSubmit={getFormData} className="invoice-fill" style={{ ...style }}>
-      <h1 className="invoice-fill__heading">New Invoice</h1>
+    <form
+      onSubmit={getFormData}
+      className='invoice-fill'
+      style={{ ...style }}
+    >
+      <h1 className='invoice-fill__heading'>New Invoice</h1>
 
-      <div className="invoice-fill-inputs" ref={containerRef}>
-        <div className="invoice-fill-box">
-          <h3 className="invoice-fill-box__heading">Bill From</h3>
+      <div
+        className='invoice-fill-inputs'
+        ref={containerRef}
+      >
+        <div className='invoice-fill-box'>
+          <h3 className='invoice-fill-box__heading'>Bill From</h3>
 
           <InvoiceFillBoxInput
             editedInvoice={editedInvoice}
-            id="senderStreet"
-            labelText="Street Address"
+            id='senderStreet'
+            labelText='Street Address'
             style={{ gridColumn: "1 /-1" }}
           />
           <InvoiceFillBoxInput
             editedInvoice={editedInvoice}
-            id="senderCity"
-            labelText="City"
+            id='senderCity'
+            labelText='City'
           />
           <InvoiceFillBoxInput
             editedInvoice={editedInvoice}
-            id="senderPostCode"
-            labelText="Post code"
+            id='senderPostCode'
+            labelText='Post code'
           />
           <InvoiceFillBoxInput
             editedInvoice={editedInvoice}
-            id="senderCountry"
-            labelText="Country"
+            id='senderCountry'
+            labelText='Country'
           />
         </div>
 
-        <div className="invoice-fill-box">
-          <h3 className="invoice-fill-box__heading">Bill To</h3>
+        <div className='invoice-fill-box'>
+          <h3 className='invoice-fill-box__heading'>Bill To</h3>
           <InvoiceFillBoxInput
             editedInvoice={editedInvoice}
-            id="clientName"
+            id='clientName'
             labelText="Clinet's name"
             style={{ gridColumn: "1 /-1" }}
           />
           <InvoiceFillBoxInput
             editedInvoice={editedInvoice}
-            id="clientEmail"
+            id='clientEmail'
             labelText="Clinet's email"
             style={{ gridColumn: "1 /-1" }}
           />
           <InvoiceFillBoxInput
             editedInvoice={editedInvoice}
-            id="clientStreet"
-            labelText="Street Address"
+            id='clientStreet'
+            labelText='Street Address'
             style={{ gridColumn: "1 /-1" }}
           />
           <InvoiceFillBoxInput
             editedInvoice={editedInvoice}
-            id="cleintCity"
-            labelText="City"
+            id='cleintCity'
+            labelText='City'
           />
           <InvoiceFillBoxInput
             editedInvoice={editedInvoice}
-            id="clientPostCode"
-            labelText="Post code"
+            id='clientPostCode'
+            labelText='Post code'
           />
           <InvoiceFillBoxInput
             editedInvoice={editedInvoice}
-            id="clientCountry"
-            labelText="Country"
+            id='clientCountry'
+            labelText='Country'
           />
         </div>
 
-        <div className="invoice-fill-date-box">
+        <div className='invoice-fill-date-box'>
           <InvoiceFillBoxInput
             editedInvoice={editedInvoice}
-            id="date"
-            labelText="Invoice Date"
+            id='date'
+            labelText='Invoice Date'
           />
           <InvoiceFillSelect editedInvoice={editedInvoice} />
           <InvoiceFillBoxInput
             editedInvoice={editedInvoice}
-            id="description"
-            labelText="Description"
+            id='description'
+            labelText='Description'
             style={{ gridColumn: "1 /-1" }}
           />
         </div>
@@ -197,23 +199,23 @@ const InvoiceFillForm = ({ style }) => {
         <InvoiceItemsList container={containerRef} />
       </div>
 
-      <div className="invoice-fill-footbtns">
+      <div className='invoice-fill-footbtns'>
         <InvoiceFillBtns
           type={"button"}
           handleClick={handleDiscard}
-          btnText="Discard"
-          className="discard"
+          btnText='Discard'
+          className='discard'
         />
         <InvoiceFillBtns
           type={"submit"}
-          btnText="Save as Draft"
-          className="save-draft"
+          btnText='Save as Draft'
+          className='save-draft'
           handleClick={handleDraft}
         />
         <InvoiceFillBtns
           type={"submit"}
-          btnText="Save & Send"
-          className="save-send"
+          btnText='Save & Send'
+          className='save-send'
         />
       </div>
     </form>

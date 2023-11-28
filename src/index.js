@@ -8,17 +8,19 @@ import { OpenContextProvider } from "./contexts/OpenContext";
 import { UserProvider } from "./contexts/UserContext";
 import { InvoiceDataProvider } from "./contexts/InvoiceDataContext";
 import { InvoiceProvider } from "./contexts/InvoiceContext";
+import { Elements } from "@stripe/react-stripe-js";
+import { stripePromise } from "./utils/stripe.utils";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  // <React.StrictMode>
-  // </React.StrictMode>
   <BrowserRouter>
     <UserProvider>
       <OpenContextProvider>
         <InvoiceProvider>
           <InvoiceDataProvider>
-            <App />
+            <Elements stripe={stripePromise}>
+              <App />
+            </Elements>
           </InvoiceDataProvider>
         </InvoiceProvider>
       </OpenContextProvider>

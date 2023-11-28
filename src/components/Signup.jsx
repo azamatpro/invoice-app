@@ -7,7 +7,6 @@ import {
 } from "../utils/firebase.utils";
 import { useState } from "react";
 
-
 const defaultFormFields = {
   displayName: "",
   email: "",
@@ -16,7 +15,7 @@ const defaultFormFields = {
 };
 
 const Signup = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
   const handleChange = (e) => {
@@ -26,14 +25,10 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (password !== confirmPassword)
-      return alert("Password and Confirm password are not match");
+    if (password !== confirmPassword) return alert("Password and Confirm password are not match");
     try {
-      const { user } = await createAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
-      navigate("/")
+      const { user } = await createAuthUserWithEmailAndPassword(email, password);
+      navigate("/");
       await createUserDocFromAuth(user, { displayName });
       setFormFields(defaultFormFields);
     } catch (error) {
@@ -47,66 +42,72 @@ const Signup = () => {
 
   const signGoogleUser = async () => {
     await signInWithGooglePopup();
-    navigate("/")
+    navigate("/");
   };
   return (
-    <div className="sign">
-      <h1 className="sign__heading">Create your account</h1>
-      <p className="sign__message">Sign up with your email and password</p>
-      <form onSubmit={handleSubmit} className="sign__form">
+    <div className='sign'>
+      <h1 className='sign__heading'>Create your account</h1>
+      <p className='sign__message'>Sign up with your email and password</p>
+      <form
+        onSubmit={handleSubmit}
+        className='sign__form'
+      >
         <input
-          className="sign__input input-btn"
-          type="text"
-          name="displayName"
-          placeholder="Display name"
+          className='sign__input input-btn'
+          type='text'
+          name='displayName'
+          placeholder='Display name'
           required
           value={displayName}
           onChange={handleChange}
         />
         <input
-          className="sign__input input-btn"
-          type="email"
-          name="email"
-          placeholder="Email address"
+          className='sign__input input-btn'
+          type='email'
+          name='email'
+          placeholder='Email address'
           required
           value={email}
           onChange={handleChange}
         />
         <input
-          className="sign__input input-btn"
-          type="password"
-          name="password"
-          placeholder="Password"
+          className='sign__input input-btn'
+          type='password'
+          name='password'
+          placeholder='Password'
           required
           value={password}
           onChange={handleChange}
         />
 
         <input
-          className="sign__input input-btn"
-          type="password"
-          name="confirmPassword"
-          placeholder="Confim password"
+          className='sign__input input-btn'
+          type='password'
+          name='confirmPassword'
+          placeholder='Confim password'
           required
           value={confirmPassword}
           onChange={handleChange}
         />
-        <button className="sign__btn-continue input-btn">Continue</button>
+        <button className='sign__btn-continue input-btn'>Continue</button>
       </form>
-      <p className="sign__message">
+      <p className='sign__message'>
         Already have an account?
-        <Link className="sign__link" to="/login">
+        <Link
+          className='sign__link'
+          to='/login'
+        >
           Log in
         </Link>
       </p>
-      <div className="orbox">
+      <div className='orbox'>
         <span>&nbsp;</span>
         <p>OR</p>
         <span>&nbsp;</span>
       </div>
       <button
-        className="sign__btn-google input-btn"
-        type="button"
+        className='sign__btn-google input-btn'
+        type='button'
         onClick={signGoogleUser}
       >
         <FcGoogle /> <span>Sign up with Google</span>

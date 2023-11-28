@@ -5,19 +5,21 @@ import { RxAvatar } from "react-icons/rx";
 import { signOutUser } from "../utils/firebase.utils";
 import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
-
-const signOutHandler = async () => {
-  await signOutUser();
-};
+import { useNavigate } from "react-router-dom";
 
 const Avatar = () => {
+  const navigate = useNavigate();
   const { currentUser } = useContext(UserContext);
+  const signOutHandler = async () => {
+    await signOutUser();
+    navigate("/");
+  };
   return (
-    <div className="avatar-box">
-      <IconSun className="avatar-box__switch-mode"/>
+    <div className='avatar-box'>
+      <IconSun className='avatar-box__switch-mode' />
 
-      <div className="avatar-box__bottom-border">&nbsp;</div>
-      <div className="avatar-box__user">
+      <div className='avatar-box__bottom-border'>&nbsp;</div>
+      <div className='avatar-box__user'>
         <RxAvatar
           style={{
             width: "3rem",
@@ -27,9 +29,12 @@ const Avatar = () => {
           }}
         />
       </div>
-      <div className="user-settings">
+      <div className='user-settings'>
         {currentUser && (
-          <p onClick={signOutHandler} className="user-settings__signout">
+          <p
+            onClick={signOutHandler}
+            className='user-settings__signout'
+          >
             Sign out
           </p>
         )}

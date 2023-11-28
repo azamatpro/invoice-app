@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { InvoiceDataContext } from "../contexts/InvoiceDataContext";
 const statuses = ["paid", "draft", "pending", "all"];
 
@@ -12,13 +12,19 @@ const FilterStatusForm = ({ switchFilter }) => {
   };
 
   return (
-    <form className="filter-form header-filter-position" action="#">
+    <form
+      className='filter-form header-filter-position'
+      action='#'
+    >
       {statuses.map((status) => (
-        <div className="filter-form__category" key={status}>
+        <div
+          className='filter-form__category'
+          key={status}
+        >
           <input
             onChange={handleStatusChange}
-            name="filter"
-            type="radio"
+            name='filter'
+            type='radio'
             defaultValue={status}
           />
           <span>{status}</span>

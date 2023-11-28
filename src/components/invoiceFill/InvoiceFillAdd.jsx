@@ -1,9 +1,8 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { ReactComponent as IconDelete } from "../../assets/icon-delete.svg";
 import { INVOICE_ACTION_TYPES } from "./InvoiceAtionTypes";
 
 const InvoiceFillAdd = ({ itemDispatch, itemOrder, item }) => {
-  const [total, setTotal] = useState();
   const quantityRef = useRef();
   const priceRef = useRef();
 
@@ -21,10 +20,10 @@ const InvoiceFillAdd = ({ itemDispatch, itemOrder, item }) => {
     itemDispatch({ type: INVOICE_ACTION_TYPES.REMOVE_ITEM, payload: item.id });
   };
   return (
-    <div className="invoice-fill-item__item-inputs">
+    <div className='invoice-fill-item__item-inputs'>
       <input
-        className="invoice-fill-box__input--input"
-        type="text"
+        className='invoice-fill-box__input--input'
+        type='text'
         style={{ outline: "none" }}
         name={`itemName_${itemOrder}`}
         value={item[`itemName_${itemOrder}`] || item?.name}
@@ -32,8 +31,8 @@ const InvoiceFillAdd = ({ itemDispatch, itemOrder, item }) => {
         onChange={handleEditItem}
       />
       <input
-        className="invoice-fill-box__input--input"
-        type="number"
+        className='invoice-fill-box__input--input'
+        type='number'
         style={{ outline: "none" }}
         name={`itemQuantity_${itemOrder}`}
         ref={quantityRef}
@@ -42,8 +41,8 @@ const InvoiceFillAdd = ({ itemDispatch, itemOrder, item }) => {
         onChange={handleEditItem}
       />
       <input
-        className="invoice-fill-box__input--input"
-        type="number"
+        className='invoice-fill-box__input--input'
+        type='number'
         style={{ outline: "none" }}
         name={`itemPrice_${itemOrder}`}
         ref={priceRef}
@@ -52,15 +51,18 @@ const InvoiceFillAdd = ({ itemDispatch, itemOrder, item }) => {
         onChange={handleEditItem}
       />
       <input
-        className="invoice-fill-box__input--input"
-        type="number"
+        className='invoice-fill-box__input--input'
+        type='number'
         style={{ border: "none", outline: "invert" }}
         name={`itemTotal_${itemOrder}`}
         value={item[`itemTotal_${itemOrder}`] || item?.total}
         required
         onChange={handleEditItem}
       />
-      <IconDelete className="icon-delete-box" onClick={handleRemove} />
+      <IconDelete
+        className='icon-delete-box'
+        onClick={handleRemove}
+      />
     </div>
   );
 };

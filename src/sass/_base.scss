@@ -21,23 +21,20 @@ body {
 }
 // OUTSIDE CONTAINER
 .container {
-  display: grid;
+  display: flex;
   height: 100vh;
-  width: 100vw;
-  grid-template-columns: 8rem 1fr;
-  justify-items: center;
+  width: 100%;
   background-color: $color-white-2;
   z-index: 10;
 
   @media screen and (max-width: $br-point-tab-port) {
-    grid-template-rows: max-content max-content;
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
 }
 // SIDEBAR
 .sidebar {
   grid-row: 1 / -1;
-  width: 100%;
+  width: 8rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -49,9 +46,8 @@ body {
   z-index: 40;
 
   @media screen and (max-width: $br-point-tab-port) {
-    grid-row: 1 / 2;
-    grid-column: 1/ -1;
     flex-direction: row;
+    width: 100%;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
@@ -59,8 +55,8 @@ body {
 // HOME
 .home {
   max-width: 100%;
+  margin: 0 auto;
   @media screen and (max-width: $br-point-tab-port) {
-    // grid-column: 1 /-1;
     padding: 0 2rem;
   }
 }
@@ -72,9 +68,6 @@ body {
   margin: 7rem auto;
   align-items: center;
   justify-content: space-between;
-
-  @media screen and (max-width: $br-point-tab-port) {
-  }
 }
 
 // SECTION INVOICES
